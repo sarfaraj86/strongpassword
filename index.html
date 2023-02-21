@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strog Password</title>
+</head>
+<body>
+    <input type="password" id="pass" oninput="password()">
+    <h2 id="result"></h2>
+    <input type="button" value="login" disabled id="a">
+    <script>
+        function password()
+        {
+            var pass = document.getElementById("pass").value;
+            var passlen = pass.length;
+            if(passlen==0)
+            {
+                document.getElementById("result").innerHTML=" "
+            }
+            else if(passlen>0&&passlen<=5)
+            {
+                document.getElementById("result").innerHTML="Weak password"
+                document.getElementById("result").style.color="red"
+            }
+            else if(passlen>=6&&passlen<=10)
+            {
+                document.getElementById("result").innerHTML="good password"
+                document.getElementById("result").style.color="orange"
+                document.getElementById("a").setAttribute("disabled","true")
+
+            }
+            else
+            {
+                document.getElementById("result").innerHTML="Strong Password"
+                document.getElementById("result").style.color="green"
+                document.getElementById("a").removeAttribute("disabled")
+            }
+        }
+    </script>
+</body>
+</html>
